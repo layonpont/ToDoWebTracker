@@ -1,0 +1,41 @@
+<html>
+<body>
+<a href="/">All</a>
+<a href="/?genre=important">Important Todos</a>
+<a href="/?genre=unimportant">Unimportant Todos</a>
+<a href="/?genre=medium">Medium Todos</a>
+<a href="/?genre=urgent">Urgent Todos</a>
+
+<br><br>
+<form action="/add-item" method="post">
+    <input type="text" placeholder="Todo" name="gameName"/>
+    <select name="gameGenre">
+        <option selected disabled>Type</option>
+        <option value="important">Important</option>
+        <option value="unimportant">Unimportant</option>
+        <option value="medium">Medium</option>
+        <option value="urgent">Urgent</option>
+    </select>
+
+
+
+    <button type="submit">Add Item</button>
+</form>
+
+<ol>
+    {{#todos}}
+        <li>{{text}}
+            {{#isDone}}
+            (Done)
+            {{/isDone}}
+           {{^isDone}}
+            
+            {{/isDone}}
+            <a href="/delete?toDOID={{id}}"  > delete</a>    <a href="/toggle?toDoID={{id}}">Toggle</a></li>
+
+    </li>
+    {{/todos}}
+
+</ol>
+</body>
+</html>

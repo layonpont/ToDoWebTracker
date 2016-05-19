@@ -1,10 +1,39 @@
 <html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/tiy-styles.css" rel="stylesheet" type="text/css"/>
+</head>
 <body>
+<div id="logo-div">
+    <img src="https://www.theironyard.com/etc/designs/theironyard/icons/iron-yard-logo.svg"/>
+</div>
+
+{{^user}}
+<form action="/login" method="post">
+    <input type="text" placeholder="Username" name="userName" required/>
+    <input type="password" placeholder="Password" name="password" required/>
+    <button type="submit">Login</button>
+</form>
+{{/user}}
+
+{{#user}}
+Welcome, {{name}}!
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<br><br>
+
 <a href="/">All</a>
-<a href="/?genre=important">Important Todos</a>
-<a href="/?genre=unimportant">Unimportant Todos</a>
-<a href="/?genre=medium">Medium Todos</a>
-<a href="/?genre=urgent">Urgent Todos</a>
+<a href="/?toDoType=important">Important Todos</a>
+<a href="/?toDoType=unimportant">Unimportant Todos</a>
+<a href="/?toDoType=medium">Medium Todos</a>
+<a href="/?toDoType=urgent">Urgent Todos</a>
+
+<form action="/" method="get">
+    <input type="text" placeholder="Search" name="search"/>
+    <button type="submit">Search</button>
+</form>
+
+<br><br>
 
 <br><br>
 <form action="/add-item" method="post">
@@ -37,5 +66,6 @@
     {{/todos}}
 
 </ol>
+{{/user}}
 </body>
 </html>

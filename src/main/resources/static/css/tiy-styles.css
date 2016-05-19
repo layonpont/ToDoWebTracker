@@ -1,0 +1,36 @@
+body {
+    background-color: green;
+    padding: 10px;
+}
+
+#logo-div {
+     position: relative;
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        top: 0;
+        left: 0;
+        transition: transform .5s ease;
+         animation: spin 4s linear infinite;
+}
+
+ol li::before {
+    content: " -> ";
+}
+
+a {
+    color: green;
+    transition: color .5s ease;
+}
+a:hover {
+    color: black;
+}
+
+@keyframes spin {
+    100% {
+        transform:rotate(360deg);
+    }
+
+    #logo-div:hover {
+        animation: spin 4s linear infinite;
+    }
